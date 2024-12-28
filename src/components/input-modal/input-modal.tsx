@@ -11,35 +11,30 @@ import PdfGenerator from "../pdf-generator/pdf-generator";
 
 const InputModal = () => {
   const [inputs, setInputs] = useState<Inputs>({
-    pass: "12345",
-    no: "67890",
-    book: "A1",
-    date: "2023-10-01",
-    time: "10:00 AM",
-    mining: "Central Mining Office",
-    auction: "Auction House",
-    purchaser: "John Doe",
-    destination: "City Center",
-    route: "Route 66",
-    minor: "Granite",
-    permit: "P123",
-    date2: "2023-10-02",
-    quantity: "100",
-    meter: "50",
-    cum: "200",
-    ton: "10",
-    tare: "2",
-    mineral: "Iron Ore",
+    pass: "",
+    no: "",
+    book: "",
+    date: "",
+    time: "",
+    mining: "",
+    auction: "",
+    purchaser: "",
+    destination: "",
+    route: "",
+    minor: "",
+    permit: "",
+    date2: "",
+    quantity: "",
+    meter: "",
+    cum: "",
+    ton: "",
+    tare: "",
+    mineral: "",
     lineItems: [
       {
-        length: "10",
-        breadth: "5",
-        height: "2",
-      },
-      {
-        length: "12",
-        breadth: "6",
-        height: "3",
+        length: "",
+        breadth: "",
+        height: "",
       },
     ],
   });
@@ -91,7 +86,7 @@ const InputModal = () => {
     if (!pdfChecks()) {
       return;
     }
-    const fileName = inputs.book ? `${inputs.book}.pdf` : "test.pdf"; // Use book number as file name, fallback to "test.pdf"
+    const fileName = inputs.book ? `${inputs.book}.pdf` : "test.pdf"; 
     const blob = await pdf(<PdfGenerator inputs={inputs} />).toBlob();
     saveAs(blob, fileName);
   };
